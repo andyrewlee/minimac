@@ -61,6 +61,7 @@
   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
   "SPC" '(helm-M-x :which-key "M-x")
   "c"  '(evilnc-comment-or-uncomment-lines :which-key "comment selection")
+  "be"  '(eval-buffer :which-key "eval buffer")
   "pf"  '(helm-find-file :which-key "find files")
   "wl"  '(windmove-right :which-key "move right")
   "wh"  '(windmove-left :which-key "move left")
