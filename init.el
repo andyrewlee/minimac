@@ -24,6 +24,11 @@
   :config
   (evil-mode 1))
 
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-gruvbox t))
+
 (use-package helm
   :ensure t
   :init
