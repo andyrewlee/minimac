@@ -64,7 +64,7 @@
   "u"  '(evil-scroll-up :which-key "scroll up")
   "d"  '(evil-scroll-down :which-key "scroll down")
   "be"  '(eval-buffer :which-key "eval buffer")
-  "pf"  '(helm-find-file :which-key "find files")
+  "pf"  '(helm-find-files :which-key "find files")
   "wl"  '(windmove-right :which-key "move right")
   "wh"  '(windmove-left :which-key "move left")
   "wk"  '(windmove-up :which-key "move up")
