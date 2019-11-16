@@ -49,6 +49,9 @@
   :init
   (setq ranger-show-hidden t))
 
+(use-package evil-nerd-commenter
+  :ensure t)
+
 (use-package general
   :ensure t
   :config (general-define-key
@@ -57,6 +60,7 @@
   :non-normal-prefix "M-SPC"
   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
   "SPC" '(helm-M-x :which-key "M-x")
+  "c"  '(evilnc-comment-or-uncomment-lines :which-key "comment selection")
   "pf"  '(helm-find-file :which-key "find files")
   "wl"  '(windmove-right :which-key "move right")
   "wh"  '(windmove-left :which-key "move left")
