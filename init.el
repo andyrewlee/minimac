@@ -14,7 +14,7 @@
 ;; Defaults
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(ranger-override-dired-mode t)
+(setq ranger-override-dired-mode t)
 (setq inhibit-startup-screen t)
 
 
