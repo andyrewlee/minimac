@@ -14,7 +14,6 @@
 ;; Defaults
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(setq ranger-override-dired-mode t)
 (setq inhibit-startup-screen t)
 
 
@@ -49,6 +48,7 @@
 (use-package ranger 
   :ensure t
   :init
+  (setq ranger-override-dired-mode t)
   (setq ranger-show-hidden t))
 
 (use-package evil-nerd-commenter
