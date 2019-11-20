@@ -143,7 +143,7 @@
   "u"  '(evil-scroll-up :which-key "scroll up")
   "d"  '(evil-scroll-down :which-key "scroll down")
   "be"  '(eval-buffer :which-key "eval buffer")
-  "pf"  '(projectile-find-files :which-key "find files")
+  "pf"  '(projectile-find-file :which-key "find file")
   "pg"  '(projectile-grep :which-key "grep")
   "wl"  '(windmove-right :which-key "move right")
   "wh"  '(windmove-left :which-key "move left")
