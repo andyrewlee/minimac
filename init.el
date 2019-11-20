@@ -54,6 +54,13 @@
 (use-package evil-nerd-commenter
   :ensure t)
 
+(use-package projectile
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode +1))
+
 (use-package general
   :ensure t
   :config (general-define-key
@@ -66,7 +73,8 @@
   "u"  '(evil-scroll-up :which-key "scroll up")
   "d"  '(evil-scroll-down :which-key "scroll down")
   "be"  '(eval-buffer :which-key "eval buffer")
-  "pf"  '(helm-find-files :which-key "find files")
+  "pf"  '(projectile-find-files :which-key "find files")
+  "pg"  '(projectile-grep :which-key "grep")
   "wl"  '(windmove-right :which-key "move right")
   "wh"  '(windmove-left :which-key "move left")
   "wk"  '(windmove-up :which-key "move up")
