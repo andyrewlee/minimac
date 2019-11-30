@@ -20,7 +20,6 @@
 
 ;; Packages
 (use-package evil
-  :ensure t
   :init
   (setq evil-want-C-u-scroll t)
   (setq evil-shift-width 2)
@@ -32,19 +31,16 @@
   (global-evil-surround-mode 1))
 
 (use-package doom-themes
-  :ensure t
   :config
   (load-theme 'doom-gruvbox t))
 
 (use-package helm
-  :ensure t
   :init
   (setq helm-mode-fuzzy-match t)
   (setq helm-completion-in-region-fuzzy-match t)
   (setq helm-candidate-number-list 50))
 
 (use-package which-key
-  :ensure t
   :init
   (setq which-key-separator " ")
   (setq which-key-prefix-prefix "+")
@@ -52,23 +48,19 @@
   (which-key-mode))
 
 (use-package ranger 
-  :ensure t
   :init
   (setq ranger-override-dired-mode t)
   (setq ranger-show-hidden t))
 
-(use-package evil-nerd-commenter
-  :ensure t)
+(use-package evil-nerd-commenter)
 
 (use-package projectile
-  :ensure t
   :config
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))
 
 (use-package flycheck
-  :ensure t
   :config
   (add-hook 'typescript-mode-hook 'flycheck-mode))
 
@@ -82,7 +74,6 @@
   (company-mode +1))
 
 (use-package company
-  :ensure t
   :config
   (setq company-show-numbers t)
   (setq company-tooltip-align-annotations t)
@@ -90,14 +81,11 @@
   (global-company-mode))
 
 (use-package company-quickhelp
-  :ensure t
   :init
   (company-quickhelp-mode 1)
-  (use-package pos-tip
-    :ensure t))
+  (use-package pos-tip))
 
 (use-package web-mode
-  :ensure t
   :mode (("\\.html?\\'" . web-mode)
         ("\\.tsx\\'" . web-mode)
         ("\\.jsx\\'" . web-mode))
@@ -120,14 +108,12 @@
   (flycheck-add-mode 'typescript-tslint 'web-mode))
 
 (use-package typescript-mode
-  :ensure t
   :config
   (setq typescript-indent-level 2)
   (add-hook 'typescript-mode #'subword-mode))
 
 (use-package tide
   :init
-  :ensure t
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
         (typescript-mode . tide-hl-identifier-mode)))
@@ -163,7 +149,6 @@
 (use-package multi-term)
 
 (use-package general
-  :ensure t
   :config (general-define-key
   :states '(normal visual insert emacs)
   :prefix "SPC"
