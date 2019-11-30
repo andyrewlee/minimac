@@ -1,22 +1,38 @@
+;; Configure use-package
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 (use-package auto-compile
   :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
 
+
 ;; Defaults
-(tool-bar-mode 0)
 (menu-bar-mode 0)
+(tool-bar-mode 0)
 (scroll-bar-mode -1)
-(global-linum-mode 1) 
 (set-window-scroll-bars (minibuffer-window) nil nil)
+
+(global-linum-mode 1) 
 (global-prettify-symbols-mode t)
 (global-hl-line-mode)
+(global-auto-revert-mode t)
+(global-font-lock-mode t)
+
 (setq-default tab-width 2)
+
 (setq frame-title-format '((:eval (projectile-project-name))))
 (setq inhibit-startup-screen t)
+(setq initial-scratch-message nil)
 (setq ring-bell-function 'ignore)
 (setq dired-use-ls-dired  nil)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq default-directory "~/")
+(setq require-final-newline t)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Packages
 (use-package evil
@@ -175,6 +191,7 @@
   "ar"  '(ranger :which-key "ranger")
   "at"  '(multi-term :which-key "terminal")
 ))
+
 
 ;; Scripts
 (defun jhl/split-window-below-and-switch ()
