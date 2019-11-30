@@ -8,6 +8,7 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode -1)
+(global-linum-mode 1) 
 (set-window-scroll-bars (minibuffer-window) nil nil)
 (global-prettify-symbols-mode t)
 (global-hl-line-mode)
