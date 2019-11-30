@@ -145,6 +145,17 @@
   (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
   (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 
+(use-package magit
+  :bind
+  ("C-x g" . magit-status)
+
+  :config
+  (use-package evil-magit)
+  (use-package with-editor)
+  (setq magit-push-always-verify nil)
+  (setq git-commit-summary-max-length 50)
+  (add-hook 'with-editor-mode-hook 'evil-insert-state))
+
 (use-package general
   :ensure t
   :config (general-define-key
@@ -159,6 +170,8 @@
   "be"  '(eval-buffer :which-key "eval buffer")
   "pf"  '(projectile-find-file :which-key "find file")
   "pg"  '(projectile-grep :which-key "grep")
+  "gs"  '(magit-status :which-key "git status")
+  "gd"  '(magit-diff :which-key "git diff")
   "wl"  '(windmove-right :which-key "move right")
   "wh"  '(windmove-left :which-key "move left")
   "wk"  '(windmove-up :which-key "move up")
@@ -169,3 +182,4 @@
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
 ))
+
