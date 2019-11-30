@@ -160,6 +160,8 @@
             (haskell-doc-mode)
             (turn-on-haskell-indent))))
 
+(use-package multi-term)
+
 (use-package general
   :ensure t
   :config (general-define-key
@@ -185,5 +187,6 @@
   "wx"  '(delete-window :which-key "delete window")
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
+  "at"  '(multi-term :which-key "ranger")
 ))
 
