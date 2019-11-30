@@ -146,15 +146,19 @@
   (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 
 (use-package magit
-  :bind
-  ("C-x g" . magit-status)
-
   :config
   (use-package evil-magit)
   (use-package with-editor)
   (setq magit-push-always-verify nil)
   (setq git-commit-summary-max-length 50)
   (add-hook 'with-editor-mode-hook 'evil-insert-state))
+
+(use-package haskell-mode
+	:config
+	(add-hook 'haskell-mode-hook
+          (lambda ()
+            (haskell-doc-mode)
+            (turn-on-haskell-indent))))
 
 (use-package general
   :ensure t
