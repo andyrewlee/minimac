@@ -172,6 +172,6 @@
   "wx"  '(delete-window :which-key "delete window")
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
-  "at"  '(multi-term :which-key "ranger")
+  "at"  '(multi-term :which-key "terminal")
 ))
 
