@@ -159,6 +159,7 @@
   "u"  '(evil-scroll-up :which-key "scroll up")
   "d"  '(evil-scroll-down :which-key "scroll down")
   "be"  '(eval-buffer :which-key "eval buffer")
+  "bl"  '(list-buffers :which-key "list buffers")
   "pf"  '(projectile-find-file :which-key "find file")
   "pg"  '(projectile-grep :which-key "grep")
   "gs"  '(magit-status :which-key "git status")
@@ -167,11 +168,22 @@
   "wh"  '(windmove-left :which-key "move left")
   "wk"  '(windmove-up :which-key "move up")
   "wj"  '(windmove-down :which-key "move bottom")
-  "wV"  '(split-window-right :which-key "split right")
-  "wS"  '(split-window-below :which-key "split bottom")
+  "wV"  '(jhl/split-window-right-and-switch :which-key "split right")
+  "wS"  '(jhl/split-window-below-and-switch :which-key "split bottom")
   "wx"  '(delete-window :which-key "delete window")
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
   "at"  '(multi-term :which-key "terminal")
 ))
+
+;; Scripts
+(defun jhl/split-window-below-and-switch ()
+  (interactive)
+  (split-window-below)
+  (other-window 1))
+
+(defun jhl/split-window-right-and-switch ()
+  (interactive)
+  (split-window-right)
+  (other-window 1))
 
