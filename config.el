@@ -11,8 +11,10 @@
 (tool-bar-mode 0)
 (scroll-bar-mode -1)
 (set-window-scroll-bars (minibuffer-window) nil nil)
+(blink-cursor-mode -1)
+(show-paren-mode t)
 
-(global-linum-mode 1) 
+(global-linum-mode 1)
 (global-prettify-symbols-mode t)
 (global-hl-line-mode)
 (global-auto-revert-mode t)
@@ -63,7 +65,7 @@
   :config
   (which-key-mode))
 
-(use-package ranger 
+(use-package ranger
   :init
   (setq ranger-override-dired-mode t)
   (setq ranger-show-hidden t))
@@ -204,3 +206,6 @@
   (split-window-right)
   (other-window 1))
 
+(defun jhl/emacs-config ()
+  (interactive)
+  (find-file "~/.emacs.d/config.el"))
