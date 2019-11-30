@@ -1,7 +1,21 @@
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+(use-package auto-compile
+  :config (auto-compile-on-load-mode))
+(setq load-prefer-newer t)
+
 ;; Defaults
+(tool-bar-mode 0)
+(menu-bar-mode 0)
 (scroll-bar-mode -1)
-(tool-bar-mode -1)
+(set-window-scroll-bars (minibuffer-window) nil nil)
+(global-prettify-symbols-mode t)
+(global-hl-line-mode)
+(setq-default tab-width 2)
+(setq frame-title-format '((:eval (projectile-project-name))))
 (setq inhibit-startup-screen t)
+(setq ring-bell-function 'ignore)
+(setq dired-use-ls-dired  nil)
 
 ;; Packages
 (use-package evil
@@ -11,6 +25,10 @@
   (setq evil-shift-width 2)
   :config
   (evil-mode 1))
+
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode 1))
 
 (use-package doom-themes
   :ensure t
@@ -116,6 +134,15 @@
 (use-package css-mode
   :config
   (setq css-indent-offset 2))
+
+(use-package moody
+  :config
+  (setq x-underline-at-descent-line t))
+
+(use-package diff-hl
+  :config
+  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 
 (use-package general
   :ensure t
