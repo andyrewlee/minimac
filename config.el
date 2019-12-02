@@ -201,7 +201,6 @@
   "wj"  '(windmove-down :which-key "move bottom")
   "wV"  '(jhl/split-window-right-and-switch :which-key "split right")
   "wS"  '(jhl/split-window-below-and-switch :which-key "split bottom")
-  "wx"  '(delete-window :which-key "delete window")
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
   "at"  '(multi-term :which-key "terminal")
