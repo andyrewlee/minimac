@@ -52,11 +52,6 @@
   :config
   (load-theme 'doom-gruvbox t))
 
-(use-package helm
-  :init
-  (setq helm-mode-fuzzy-match t)
-  (setq helm-completion-in-region-fuzzy-match t)
-  (setq helm-candidate-number-list 50))
 
 (use-package which-key
   :init
@@ -72,11 +67,29 @@
 
 (use-package evil-nerd-commenter)
 
+(use-package counsel
+  :bind
+  ("M-x" . 'counsel-M-x)
+  ("C-s" . 'swiper)
+
+  :config
+  (use-package flx)
+  (use-package smex)
+
+  (ivy-mode 1)
+
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq ivy-initial-inputs-alist nil)
+  (setq ivy-re-builders-alist
+        '((swiper . ivy--regex-plus)
+          (t . ivy--regex-fuzzy))))
+
 (use-package projectile
   :config
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (projectile-mode +1))
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-switch-project-action 'projectile-dired)
+  (setq projectile-require-project-root nil))
 
 (use-package flycheck
   :config
@@ -172,7 +185,7 @@
   :prefix "SPC"
   :non-normal-prefix "M-SPC"
   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
-  "SPC" '(helm-M-x :which-key "M-x")
+  "SPC" '(counsel-M-x :which-key "M-x")
   "c"  '(evilnc-comment-or-uncomment-lines :which-key "comment selection")
   "u"  '(evil-scroll-up :which-key "scroll up")
   "d"  '(evil-scroll-down :which-key "scroll down")
@@ -192,6 +205,7 @@
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
   "at"  '(multi-term :which-key "terminal")
+  "as"  '(swiper :which-key "swiper")
 ))
 
 

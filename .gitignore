@@ -2,3 +2,5 @@ elpa/
 auto-save-list/
 *.eld
 .DS_Store
+smex-items
+transient/
