@@ -52,7 +52,6 @@
   :config
   (load-theme 'doom-gruvbox t))
 
-
 (use-package which-key
   :init
   (setq which-key-separator " ")
@@ -179,6 +178,10 @@
 
 (use-package multi-term)
 
+(use-package dumb-jump
+  :config
+  (setq dumb-jump-selector 'ivy))
+
 (use-package general
   :config (general-define-key
   :states '(normal visual insert emacs)
@@ -205,6 +208,7 @@
   "ar"  '(ranger :which-key "ranger")
   "at"  '(multi-term :which-key "terminal")
   "as"  '(swiper :which-key "swiper")
+  "aj"  '(swiper :which-key "dumb jump")
 ))
 
 
