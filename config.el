@@ -41,8 +41,15 @@
   :init
   (setq evil-want-C-u-scroll t)
   (setq evil-shift-width 2)
+	(setq evil-want-keybinding nil)
   :config
   (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
 
 (use-package evil-surround
   :config
