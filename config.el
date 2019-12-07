@@ -31,6 +31,7 @@
 (setq auto-save-default nil)
 (setq default-directory "~/")
 (setq require-final-newline t)
+(setq-default indent-tabs-mode nil)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -43,7 +44,7 @@
   :init
   (setq evil-want-C-u-scroll t)
   (setq evil-shift-width 2)
-	(setq evil-want-keybinding nil)
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1))
 
@@ -184,8 +185,8 @@
 
 ;; Haskell
 (use-package haskell-mode
-	:config
-	(add-hook 'haskell-mode-hook
+  :config
+  (add-hook 'haskell-mode-hook
           (lambda ()
             (haskell-doc-mode)
             (turn-on-haskell-indent))))
@@ -205,13 +206,14 @@
 
 ;; Move buffer
 (use-package buffer-move)
+(use-package whitespace)
 
 ;; Window resize
 (use-package golden-ratio
   :diminish golden-ratio-mode
   :init
   (golden-ratio-mode 1)
-	(add-to-list 'golden-ratio-extra-commands 'buffer-move))
+  (add-to-list 'golden-ratio-extra-commands 'buffer-move))
 
 ;; Shortcuts
 (use-package general
@@ -222,50 +224,51 @@
   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
   "SPC" '(counsel-M-x :which-key "M-x")
 
-	;; App
+  ;; App
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
   "at"  '(multi-term :which-key "terminal")
 
-	;; Buffer
+  ;; Buffer
   "be"  '(eval-buffer :which-key "eval buffer")
   "bl"  '(jhl/list-buffers-and-switch :which-key "list buffers")
 
-	;; Comment
+  ;; Comment
   "c"   '(evilnc-comment-or-uncomment-lines :which-key "comment selection")
 
-	;; Emacs
+  ;; Emacs
   "ec"  '(jhl/emacs-config :which-key "emacs config")
 
-	;; Git
+  ;; Git
   "gd"  '(magit-diff :which-key "git diff")
   "gs"  '(jhl/magit-status :which-key "git status")
 
-	;; Jump
+  ;; Jump
   "jj"  '(jhl/avy-goto-word-or-subword-1 :which-key "jump")
 
-	;; Project
+  ;; Project
   "pf"  '(projectile-find-file :which-key "find file")
   "pg"  '(projectile-grep :which-key "grep")
 
-	;; Window
+
+  ;; Window
   "wC"  '(olivetti-mode :which-key "center buffer")
   "wS"  '(jhl/split-window-below-and-switch :which-key "horizontal split")
   "wV"  '(jhl/split-window-right-and-switch :which-key "vertical split")
 
-	;; Window movement
+  ; Window movement
   "wk"  '(windmove-up :which-key "move to top window")
   "wl"  '(windmove-right :which-key "move to right rindow")
   "wh"  '(windmove-left :which-key "move to left window")
   "wj"  '(windmove-down :which-key "move to bottom window")
 
-	;; Buffer movement
+  ;; Buffer movement
   "wK"  '(jhl/buf-move-up :which-key "move buffer up")
   "wL"  '(jhl/buf-move-right :which-key "move buffer right")
   "wH"  '(jhl/buf-move-left :which-key "move buffer left")
   "wJ"  '(jhl/buf-move-down :which-key "move buffer bottom")
 
-	;; TypeScript
+  ;; TypeScript
   "tj"  '(tide-jump-to-definition :which-key "jump to definition")
 ))
 
@@ -290,40 +293,40 @@
 
 ;; Golden ratio
 (defun jhl/buf-move-right ()
-	(interactive)
+  (interactive)
   (buf-move-right)
-	(golden-ratio))
+  (golden-ratio))
 
 (defun jhl/buf-move-left ()
-	(interactive)
+  (interactive)
   (buf-move-left)
-	(golden-ratio))
+  (golden-ratio))
 
 (defun jhl/buf-move-up ()
-	(interactive)
+  (interactive)
   (buf-move-up)
-	(golden-ratio))
+  (golden-ratio))
 
 (defun jhl/buf-move-down ()
-	(interactive)
+  (interactive)
   (buf-move-down)
-	(golden-ratio))
+  (golden-ratio))
 
 (defun jhl/magit-status ()
-	(interactive)
-	(magit-status)
-	(golden-ratio))
+  (interactive)
+  (magit-status)
+  (golden-ratio))
 
 (defun jhl/avy-goto-word-or-subword-1 ()
-	(interactive)
-	(avy-goto-word-or-subword-1)
-	(golden-ratio))
+  (interactive)
+  (avy-goto-word-or-subword-1)
+  (golden-ratio))
 
 ;; Open buffer list and focus on it
 (defun jhl/list-buffers-and-switch ()
-	(interactive)
-	(list-buffers)
-	(other-window 1))
+  (interactive)
+  (list-buffers)
+  (other-window 1))
 
 ;; Tide mode
 (defun jhl/setup-tide-mode ()
