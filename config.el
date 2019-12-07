@@ -234,7 +234,7 @@
   "ar"  '(ranger :which-key "ranger")
   "at"  '(multi-term :which-key "terminal")
   "as"  '(swiper :which-key "swiper")
-  "jj"  '(avy-goto-word-or-subword-1 :which-key "jump")
+  "jj"  '(jhl/avy-goto-word-or-subword-1 :which-key "jump")
 ))
 
 
@@ -282,3 +282,8 @@
 	(interactive)
 	(list-buffers)
 	(other-window 1))
+
+(defun jhl/avy-goto-word-or-subword-1 ()
+	(interactive)
+	(avy-goto-word-or-subword-1)
+	(golden-ratio))
