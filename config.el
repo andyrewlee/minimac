@@ -210,14 +210,35 @@
   :non-normal-prefix "M-SPC"
   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
   "SPC" '(counsel-M-x :which-key "M-x")
-  "c"   '(evilnc-comment-or-uncomment-lines :which-key "comment selection")
+
+	;; Application
+  "ad"  '(deer :which-key "deer")
+  "ar"  '(ranger :which-key "ranger")
+  "at"  '(multi-term :which-key "terminal")
+  "as"  '(swiper :which-key "swiper")
+
+	;; Buffer
   "be"  '(eval-buffer :which-key "eval buffer")
   "bl"  '(jhl/list-buffers-and-switch :which-key "list buffers")
+
+	;; Comment
+  "c"   '(evilnc-comment-or-uncomment-lines :which-key "comment selection")
+
+	;; Emacs
   "ec"  '(jhl/emacs-config :which-key "emacs config")
-  "pf"  '(projectile-find-file :which-key "find file")
-  "pg"  '(projectile-grep :which-key "grep")
+
+	;; Git
   "gs"  '(jhl/magit-status :which-key "git status")
   "gd"  '(magit-diff :which-key "git diff")
+
+	;; Jump
+  "jj"  '(jhl/avy-goto-word-or-subword-1 :which-key "jump")
+
+	;; Project
+  "pf"  '(projectile-find-file :which-key "find file")
+  "pg"  '(projectile-grep :which-key "grep")
+
+	;; Window
   "wr"  '(windresize :which-key "move right")
   "wl"  '(windmove-right :which-key "move right")
   "wh"  '(windmove-left :which-key "move left")
@@ -230,11 +251,6 @@
   "wV"  '(jhl/split-window-right-and-switch :which-key "split right")
   "wS"  '(jhl/split-window-below-and-switch :which-key "split bottom")
   "wC"  '(olivetti-mode :which-key "center buffer")
-  "ad"  '(deer :which-key "deer")
-  "ar"  '(ranger :which-key "ranger")
-  "at"  '(multi-term :which-key "terminal")
-  "as"  '(swiper :which-key "swiper")
-  "jj"  '(jhl/avy-goto-word-or-subword-1 :which-key "jump")
 ))
 
 
