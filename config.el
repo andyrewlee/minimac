@@ -193,6 +193,10 @@
   :config
   (setq avy-background t))
 
+(use-package buffer-move)
+
+(use-package windresize)
+
 (use-package general
   :config (general-define-key
   :states '(normal visual insert emacs)
@@ -209,10 +213,15 @@
   "pg"  '(projectile-grep :which-key "grep")
   "gs"  '(magit-status :which-key "git status")
   "gd"  '(magit-diff :which-key "git diff")
+  "wr"  '(windresize :which-key "move right")
   "wl"  '(windmove-right :which-key "move right")
   "wh"  '(windmove-left :which-key "move left")
   "wk"  '(windmove-up :which-key "move up")
   "wj"  '(windmove-down :which-key "move bottom")
+  "wL"  '(buf-move-right :which-key "move right")
+  "wH"  '(buf-move-left :which-key "move left")
+  "wK"  '(buf-move-up :which-key "move up")
+  "wJ"  '(buf-move-down :which-key "move bottom")
   "wV"  '(jhl/split-window-right-and-switch :which-key "split right")
   "wS"  '(jhl/split-window-below-and-switch :which-key "split bottom")
   "wC"  '(olivetti-mode :which-key "center buffer")
