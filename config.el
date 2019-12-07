@@ -36,7 +36,9 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+
 ;; Packages
+;; Vim
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t)
@@ -45,20 +47,24 @@
   :config
   (evil-mode 1))
 
+;; Better evil integration with packages
 (use-package evil-collection
   :after evil
   :ensure t
   :config
   (evil-collection-init))
 
+;; Quote/paren surround
 (use-package evil-surround
   :config
   (global-evil-surround-mode 1))
 
+;; Theme
 (use-package doom-themes
   :config
   (load-theme 'doom-gruvbox t))
 
+;; Keybindings popup
 (use-package which-key
   :init
   (setq which-key-separator " ")
@@ -66,18 +72,17 @@
   :config
   (which-key-mode))
 
+;; File navigator
 (use-package ranger
   :init
   (setq ranger-override-dired-mode t)
   (setq ranger-show-hidden t))
 
+;; Commenting
 (use-package evil-nerd-commenter)
 
+;; Completion framework
 (use-package counsel
-  :bind
-  ("M-x" . 'counsel-M-x)
-  ("C-s" . 'swiper)
-
   :config
   (use-package flx)
   (use-package smex)
@@ -88,28 +93,16 @@
   (setq ivy-count-format "(%d/%d) ")
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-re-builders-alist
-        '((swiper . ivy--regex-plus)
-          (t . ivy--regex-fuzzy))))
+        '((t . ivy--regex-fuzzy))))
 
+;; Project navigation
 (use-package projectile
   :config
   (setq projectile-completion-system 'ivy)
   (setq projectile-switch-project-action 'projectile-dired)
   (setq projectile-require-project-root nil))
 
-(use-package flycheck
-  :config
-  (add-hook 'typescript-mode-hook 'flycheck-mode))
-
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  (company-mode +1))
-
+;; Suggestions
 (use-package company
   :config
   (setq company-show-numbers t)
@@ -117,11 +110,13 @@
   (setq company-tooltip-flip-when-above t)
   (global-company-mode))
 
+;; Documentation popup
 (use-package company-quickhelp
   :init
   (company-quickhelp-mode 1)
   (use-package pos-tip))
 
+;; React
 (use-package web-mode
   :mode (("\\.html?\\'" . web-mode)
         ("\\.tsx\\'" . web-mode)
@@ -141,33 +136,38 @@
   (add-hook 'web-mode-hook
             (lambda ()
               (when (string-equal "tsx" (file-name-extension buffer-file-name))
-                (setup-tide-mode))))
+                (jhl/setup-tide-mode))))
   (flycheck-add-mode 'typescript-tslint 'web-mode))
 
+;; CSS
+(use-package css-mode
+  :config
+  (setq css-indent-offset 2))
+
+;; TypeScript
 (use-package typescript-mode
   :config
   (setq typescript-indent-level 2)
   (add-hook 'typescript-mode #'subword-mode))
 
+;; TypeScript IDE
 (use-package tide
   :init
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
         (typescript-mode . tide-hl-identifier-mode)))
 
-(use-package css-mode
+;; Syntax check
+(use-package flycheck
   :config
-  (setq css-indent-offset 2))
+  (add-hook 'typescript-mode-hook 'flycheck-mode))
 
+;; Mode line
 (use-package moody
   :config
   (setq x-underline-at-descent-line t))
 
-(use-package diff-hl
-  :config
-  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
-  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
-
+;; Git
 (use-package magit
   :config
   (use-package evil-magit)
@@ -176,6 +176,13 @@
   (setq git-commit-summary-max-length 50)
   (add-hook 'with-editor-mode-hook 'evil-insert-state))
 
+;; Diff highlight
+(use-package diff-hl
+  :config
+  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
+
+;; Haskell
 (use-package haskell-mode
 	:config
 	(add-hook 'haskell-mode-hook
@@ -183,26 +190,30 @@
             (haskell-doc-mode)
             (turn-on-haskell-indent))))
 
+;; Terminal
 (use-package multi-term)
 
+;; Focus mode
 (use-package olivetti
   :config
   (setq olivetti-body-width 80))
 
+;; Jump
 (use-package avy
   :config
   (setq avy-background t))
 
+;; Move buffer
 (use-package buffer-move)
 
-(use-package windresize)
-
+;; Window resize
 (use-package golden-ratio
   :diminish golden-ratio-mode
   :init
   (golden-ratio-mode 1)
 	(add-to-list 'golden-ratio-extra-commands 'buffer-move))
 
+;; Shortcuts
 (use-package general
   :config (general-define-key
   :states '(normal visual insert emacs)
@@ -214,7 +225,6 @@
 	;; App
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
-  "as"  '(swiper :which-key "swiper")
   "at"  '(multi-term :which-key "terminal")
 
 	;; Buffer
@@ -240,11 +250,8 @@
 
 	;; Window
   "wC"  '(olivetti-mode :which-key "center buffer")
-  "wr"  '(windresize :which-key "move right")
-
-	;; Window split
-  "wV"  '(jhl/split-window-right-and-switch :which-key "vertical split")
   "wS"  '(jhl/split-window-below-and-switch :which-key "horizontal split")
+  "wV"  '(jhl/split-window-right-and-switch :which-key "vertical split")
 
 	;; Window movement
   "wk"  '(windmove-up :which-key "move to top window")
@@ -264,20 +271,24 @@
 
 
 ;; Scripts
+;; Horizontal split and focus on it
 (defun jhl/split-window-below-and-switch ()
   (interactive)
   (split-window-below)
   (other-window 1))
 
+;; Vertical split and focus on it
 (defun jhl/split-window-right-and-switch ()
   (interactive)
   (split-window-right)
   (other-window 1))
 
+;; Open emacs config
 (defun jhl/emacs-config ()
   (interactive)
   (find-file "~/.emacs.d/config.el"))
 
+;; Golden ratio
 (defun jhl/buf-move-right ()
 	(interactive)
   (buf-move-right)
@@ -303,12 +314,23 @@
 	(magit-status)
 	(golden-ratio))
 
+(defun jhl/avy-goto-word-or-subword-1 ()
+	(interactive)
+	(avy-goto-word-or-subword-1)
+	(golden-ratio))
+
+;; Open buffer list and focus on it
 (defun jhl/list-buffers-and-switch ()
 	(interactive)
 	(list-buffers)
 	(other-window 1))
 
-(defun jhl/avy-goto-word-or-subword-1 ()
-	(interactive)
-	(avy-goto-word-or-subword-1)
-	(golden-ratio))
+;; Tide mode
+(defun jhl/setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (company-mode +1))
