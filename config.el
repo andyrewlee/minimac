@@ -212,7 +212,7 @@
   "SPC" '(counsel-M-x :which-key "M-x")
   "c"   '(evilnc-comment-or-uncomment-lines :which-key "comment selection")
   "be"  '(eval-buffer :which-key "eval buffer")
-  "bl"  '(list-buffers :which-key "list buffers")
+  "bl"  '(jhl/list-buffers-and-switch :which-key "list buffers")
   "ec"  '(jhl/emacs-config :which-key "emacs config")
   "pf"  '(projectile-find-file :which-key "find file")
   "pg"  '(projectile-grep :which-key "grep")
@@ -277,3 +277,8 @@
 	(interactive)
 	(magit-status)
 	(golden-ratio))
+
+(defun jhl/list-buffers-and-switch ()
+	(interactive)
+	(list-buffers)
+	(other-window 1))
