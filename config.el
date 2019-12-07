@@ -189,6 +189,10 @@
   :config
   (setq dumb-jump-selector 'ivy))
 
+(use-package olivetti
+  :config
+  (setq olivetti-body-width 80))
+
 (use-package general
   :config (general-define-key
   :states '(normal visual insert emacs)
@@ -211,6 +215,7 @@
   "wj"  '(windmove-down :which-key "move bottom")
   "wV"  '(jhl/split-window-right-and-switch :which-key "split right")
   "wS"  '(jhl/split-window-below-and-switch :which-key "split bottom")
+  "wC"  '(olivetti-mode :which-key "center buffer")
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
   "at"  '(multi-term :which-key "terminal")
