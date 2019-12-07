@@ -185,13 +185,13 @@
 
 (use-package multi-term)
 
-(use-package dumb-jump
-  :config
-  (setq dumb-jump-selector 'ivy))
-
 (use-package olivetti
   :config
   (setq olivetti-body-width 80))
+
+(use-package avy
+  :config
+  (setq avy-background t))
 
 (use-package general
   :config (general-define-key
@@ -220,7 +220,7 @@
   "ar"  '(ranger :which-key "ranger")
   "at"  '(multi-term :which-key "terminal")
   "as"  '(swiper :which-key "swiper")
-  "aj"  '(swiper :which-key "dumb jump")
+  "jj"  '(avy-goto-word-or-subword-1 :which-key "jump")
 ))
 
 
