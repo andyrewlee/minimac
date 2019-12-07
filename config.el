@@ -210,9 +210,10 @@
   :non-normal-prefix "M-SPC"
   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
   "SPC" '(counsel-M-x :which-key "M-x")
-  "c"  '(evilnc-comment-or-uncomment-lines :which-key "comment selection")
+  "c"   '(evilnc-comment-or-uncomment-lines :which-key "comment selection")
   "be"  '(eval-buffer :which-key "eval buffer")
   "bl"  '(list-buffers :which-key "list buffers")
+  "ec"  '(jhl/emacs-config :which-key "emacs config")
   "pf"  '(projectile-find-file :which-key "find file")
   "pg"  '(projectile-grep :which-key "grep")
   "gs"  '(jhl/magit-status :which-key "git status")
