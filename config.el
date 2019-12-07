@@ -211,11 +211,11 @@
   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
   "SPC" '(counsel-M-x :which-key "M-x")
 
-	;; Application
+	;; App
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
-  "at"  '(multi-term :which-key "terminal")
   "as"  '(swiper :which-key "swiper")
+  "at"  '(multi-term :which-key "terminal")
 
 	;; Buffer
   "be"  '(eval-buffer :which-key "eval buffer")
@@ -228,8 +228,8 @@
   "ec"  '(jhl/emacs-config :which-key "emacs config")
 
 	;; Git
-  "gs"  '(jhl/magit-status :which-key "git status")
   "gd"  '(magit-diff :which-key "git diff")
+  "gs"  '(jhl/magit-status :which-key "git status")
 
 	;; Jump
   "jj"  '(jhl/avy-goto-word-or-subword-1 :which-key "jump")
@@ -239,18 +239,27 @@
   "pg"  '(projectile-grep :which-key "grep")
 
 	;; Window
-  "wr"  '(windresize :which-key "move right")
-  "wl"  '(windmove-right :which-key "move right")
-  "wh"  '(windmove-left :which-key "move left")
-  "wk"  '(windmove-up :which-key "move up")
-  "wj"  '(windmove-down :which-key "move bottom")
-  "wL"  '(jhl/buf-move-right :which-key "move right")
-  "wH"  '(jhl/buf-move-left :which-key "move left")
-  "wK"  '(jhl/buf-move-up :which-key "move up")
-  "wJ"  '(jhl/buf-move-down :which-key "move bottom")
-  "wV"  '(jhl/split-window-right-and-switch :which-key "split right")
-  "wS"  '(jhl/split-window-below-and-switch :which-key "split bottom")
   "wC"  '(olivetti-mode :which-key "center buffer")
+  "wr"  '(windresize :which-key "move right")
+
+	;; Window split
+  "wV"  '(jhl/split-window-right-and-switch :which-key "vertical split")
+  "wS"  '(jhl/split-window-below-and-switch :which-key "horizontal split")
+
+	;; Window movement
+  "wk"  '(windmove-up :which-key "move to top window")
+  "wl"  '(windmove-right :which-key "move to right rindow")
+  "wh"  '(windmove-left :which-key "move to left window")
+  "wj"  '(windmove-down :which-key "move to bottom window")
+
+	;; Buffer movement
+  "wK"  '(jhl/buf-move-up :which-key "move buffer up")
+  "wL"  '(jhl/buf-move-right :which-key "move buffer right")
+  "wH"  '(jhl/buf-move-left :which-key "move buffer left")
+  "wJ"  '(jhl/buf-move-down :which-key "move buffer bottom")
+
+	;; TypeScript
+  "tj"  '(tide-jump-to-definition :which-key "jump to definition")
 ))
 
 
