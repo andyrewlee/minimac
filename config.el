@@ -197,6 +197,12 @@
 
 (use-package windresize)
 
+(use-package golden-ratio
+  :diminish golden-ratio-mode
+  :init
+  (golden-ratio-mode 1)
+	(add-to-list 'golden-ratio-extra-commands 'buffer-move))
+
 (use-package general
   :config (general-define-key
   :states '(normal visual insert emacs)
@@ -218,10 +224,10 @@
   "wh"  '(windmove-left :which-key "move left")
   "wk"  '(windmove-up :which-key "move up")
   "wj"  '(windmove-down :which-key "move bottom")
-  "wL"  '(buf-move-right :which-key "move right")
-  "wH"  '(buf-move-left :which-key "move left")
-  "wK"  '(buf-move-up :which-key "move up")
-  "wJ"  '(buf-move-down :which-key "move bottom")
+  "wL"  '(jhl/buf-move-right :which-key "move right")
+  "wH"  '(jhl/buf-move-left :which-key "move left")
+  "wK"  '(jhl/buf-move-up :which-key "move up")
+  "wJ"  '(jhl/buf-move-down :which-key "move bottom")
   "wV"  '(jhl/split-window-right-and-switch :which-key "split right")
   "wS"  '(jhl/split-window-below-and-switch :which-key "split bottom")
   "wC"  '(olivetti-mode :which-key "center buffer")
@@ -247,3 +253,23 @@
 (defun jhl/emacs-config ()
   (interactive)
   (find-file "~/.emacs.d/config.el"))
+
+(defun jhl/buf-move-right ()
+	(interactive)
+  (buf-move-right)
+	(golden-ratio))
+
+(defun jhl/buf-move-left ()
+	(interactive)
+  (buf-move-left)
+	(golden-ratio))
+
+(defun jhl/buf-move-up ()
+	(interactive)
+  (buf-move-up)
+	(golden-ratio))
+
+(defun jhl/buf-move-down ()
+	(interactive)
+  (buf-move-down)
+	(golden-ratio))
