@@ -213,7 +213,9 @@
   :diminish golden-ratio-mode
   :init
   (golden-ratio-mode 1)
-  (add-to-list 'golden-ratio-extra-commands 'buffer-move))
+  (add-to-list 'golden-ratio-extra-commands 'buffer-move)
+  :config
+  (setq golden-ratio-exclude-modes '("ranger-mode")))
 
 ;; Shortcuts
 (use-package general
@@ -249,7 +251,6 @@
   ;; Project
   "pf"  '(projectile-find-file :which-key "find file")
   "pg"  '(projectile-grep :which-key "grep")
-
 
   ;; Window
   "wC"  '(olivetti-mode :which-key "center buffer")
