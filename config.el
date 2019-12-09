@@ -51,7 +51,6 @@
 ;; Better evil integration with packages
 (use-package evil-collection
   :after evil
-  :ensure t
   :config
   (evil-collection-init))
 
@@ -219,7 +218,6 @@
 
 ;; Org
 (use-package evil-org
-  :ensure t
   :after org
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)
@@ -233,7 +231,10 @@
   :init
   (add-hook 'org-mode-hook 'org-bullets-mode))
 
-(use-package org-pomodoro)
+(use-package org-pomodoro
+  :config
+  (setq org-pomodoro-play-sounds nil))
+
 (use-package org-present)
 (use-package org-download)
 
@@ -272,6 +273,11 @@
   ;; Jump
   "jj"  '(jhl/avy-goto-char :which-key "jump char")
   "jw"  '(jhl/avy-goto-word-or-subword-1 :which-key "jump word")
+
+  ;; Org
+  "on"  '(jhl/notes :which-key "notes")
+  "op"  '(jhl/pomodoros :which-key "pomodoros")
+  "ot"  '(jhl/todos :which-key "todos")
 
   ;; Project
   "pf"  '(projectile-find-file :which-key "find file")
@@ -324,6 +330,21 @@
 (defun jhl/zsh-config ()
   (interactive)
   (find-file "~/.zshrc"))
+
+;; Open pomodoros
+(defun jhl/pomodoros ()
+  (interactive)
+  (find-file "~/Code/orgs/pomodoros.org"))
+
+;; Open notes
+(defun jhl/notes ()
+  (interactive)
+  (find-file "~/Code/orgs/notes.org"))
+
+;; Open todos
+(defun jhl/todos ()
+  (interactive)
+  (find-file "~/Code/orgs/todos.org"))
 
 ;; Golden ratio
 (defun jhl/buf-move-right ()

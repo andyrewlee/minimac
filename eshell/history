@@ -1,0 +1,11 @@
+ls
+ls
+cd .emacs.d
+cd .emacs.d
+ls
+cd ..
+ls
+cd .emacs.d
+ls
+git status
+git reset --hard HEAD
