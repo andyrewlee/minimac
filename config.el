@@ -298,7 +298,7 @@
   "tj"  '(tide-jump-to-definition :which-key "jump to definition")
 
   ;; Zsh
-  "zc"  '(jhl/emacs-config :which-key "zsh config")
+  "zc"  '(jhl/zsh-config :which-key "zsh config")
 ))
 
 
@@ -321,7 +321,7 @@
   (find-file "~/.emacs.d/config.el"))
 
 ;; Open zsh config
-(defun jhl/emacs-config ()
+(defun jhl/zsh-config ()
   (interactive)
   (find-file "~/.zshrc"))
 
