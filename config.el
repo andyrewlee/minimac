@@ -226,7 +226,7 @@
   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
   "SPC" '(counsel-M-x :which-key "M-x")
 
-  ;; App
+  ;; Apps
   "ad"  '(deer :which-key "deer")
   "ar"  '(ranger :which-key "ranger")
   "at"  '(multi-term :which-key "terminal")
@@ -246,7 +246,8 @@
   "gs"  '(jhl/magit-status :which-key "git status")
 
   ;; Jump
-  "jj"  '(jhl/avy-goto-word-or-subword-1 :which-key "jump")
+  "jj"  '(jhl/avy-goto-char :which-key "jump char")
+  "jw"  '(jhl/avy-goto-word-or-subword-1 :which-key "jump word")
 
   ;; Project
   "pf"  '(projectile-find-file :which-key "find file")
@@ -321,6 +322,11 @@
 (defun jhl/avy-goto-word-or-subword-1 ()
   (interactive)
   (avy-goto-word-or-subword-1)
+  (golden-ratio))
+
+(defun jhl/avy-goto-char ()
+  (interactive)
+  (call-interactively #'avy-goto-char)
   (golden-ratio))
 
 ;; Open buffer list and focus on it
