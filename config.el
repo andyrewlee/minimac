@@ -217,6 +217,26 @@
   :config
   (setq golden-ratio-exclude-modes '("ranger-mode")))
 
+;; Org
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
+
+(use-package org-bullets
+  :init
+  (add-hook 'org-mode-hook 'org-bullets-mode))
+
+(use-package org-pomodoro)
+(use-package org-present)
+(use-package org-download)
+
 ;; Shortcuts
 (use-package general
   :config (general-define-key
@@ -272,6 +292,9 @@
 
   ;; TypeScript
   "tj"  '(tide-jump-to-definition :which-key "jump to definition")
+
+  ;; Zsh
+  "zc"  '(jhl/emacs-config :which-key "zsh config")
 ))
 
 
@@ -292,6 +315,11 @@
 (defun jhl/emacs-config ()
   (interactive)
   (find-file "~/.emacs.d/config.el"))
+
+;; Open zsh config
+(defun jhl/emacs-config ()
+  (interactive)
+  (find-file "~/.zshrc"))
 
 ;; Golden ratio
 (defun jhl/buf-move-right ()
