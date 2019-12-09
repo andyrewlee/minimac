@@ -253,10 +253,14 @@
 
   ;; Buffer
   "be"  '(eval-buffer :which-key "eval buffer")
+  "bn"  '(next-buffer :which-key "next buffer")
+  "bp"  '(previous-buffer :which-key "previous buffer")
   "bl"  '(jhl/list-buffers-and-switch :which-key "list buffers")
 
   ;; Comment
-  "c"   '(evilnc-comment-or-uncomment-lines :which-key "comment selection")
+  "c"   '(evilnc-comment-or-uncomment-lines
+          :which-key
+          "comment selection")
 
   ;; Emacs
   "ec"  '(jhl/emacs-config :which-key "emacs config")
