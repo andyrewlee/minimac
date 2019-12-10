@@ -20,6 +20,7 @@
 (global-auto-revert-mode t)
 (global-font-lock-mode t)
 
+(setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
 (setq frame-title-format '((:eval (projectile-project-name))))
@@ -31,7 +32,6 @@
 (setq auto-save-default nil)
 (setq default-directory "~/")
 (setq require-final-newline t)
-(setq-default indent-tabs-mode nil)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -84,16 +84,7 @@
 ;; Completion framework
 (use-package counsel
   :config
-  (use-package flx)
-  (use-package smex)
-
-  (ivy-mode 1)
-
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
-  (setq ivy-initial-inputs-alist nil)
-  (setq ivy-re-builders-alist
-        '((t . ivy--regex-fuzzy))))
+  (ivy-mode 1))
 
 ;; Project navigation
 (use-package projectile
@@ -281,7 +272,7 @@
 
   ;; Project
   "pf"  '(projectile-find-file :which-key "find file")
-  "pg"  '(projectile-grep :which-key "grep")
+  "pg"  '(counsel-git-grep :which-key "git grep")
 
   ;; Window
   "wC"  '(olivetti-mode :which-key "center buffer")
