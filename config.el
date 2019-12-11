@@ -235,7 +235,7 @@
   :states '(normal visual insert emacs)
   :prefix "SPC"
   :non-normal-prefix "M-SPC"
-  "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
+  "TAB" '(mode-line-other-buffer :which-key "previous buffer")
   "SPC" '(counsel-M-x :which-key "M-x")
 
   ;; Apps
