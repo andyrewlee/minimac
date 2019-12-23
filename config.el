@@ -264,6 +264,7 @@
   ;; Jump
   "jj"  '(jhl/avy-goto-char :which-key "jump char")
   "jw"  '(jhl/avy-goto-word-or-subword-1 :which-key "jump word")
+  "jd"  '(dumb-jump-go :which-key "dumb jump")
 
   ;; Org
   "on"  '(jhl/notes :which-key "notes")
