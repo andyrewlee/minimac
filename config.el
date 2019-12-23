@@ -383,3 +383,9 @@
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   (company-mode +1))
+
+;; Rerun flycheck
+(defun jhl/rerun-flycheck ()
+  (interactive)
+  (flycheck-clear)
+  (flycheck-buffer))
