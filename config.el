@@ -247,7 +247,7 @@
   "be"  '(eval-buffer :which-key "eval buffer")
   "bn"  '(next-buffer :which-key "next buffer")
   "bp"  '(previous-buffer :which-key "previous buffer")
-  "bl"  '(jhl/list-buffers-and-switch :which-key "list buffers")
+  "bm"  '(buffer-menu :which-key "list buffers")
 
   ;; Comment
   "c"   '(evilnc-comment-or-uncomment-lines
@@ -372,12 +372,6 @@
   (interactive)
   (call-interactively #'avy-goto-char)
   (golden-ratio))
-
-;; Open buffer list and focus on it
-(defun jhl/list-buffers-and-switch ()
-  (interactive)
-  (list-buffers)
-  (other-window 1))
 
 ;; Tide mode
 (defun jhl/setup-tide-mode ()
