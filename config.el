@@ -187,7 +187,7 @@
 ;; Focus mode
 (use-package olivetti
   :config
-  (setq olivetti-body-width 80))
+  (setq olivetti-body-width 120))
 
 ;; Jump
 (use-package avy
