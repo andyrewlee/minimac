@@ -229,10 +229,16 @@
 
 ;; Elixir
 (use-package elixir-mode
-  :ensure t
   :config
-  (use-package alchemist
-    :ensure t))
+  (use-package alchemist))
+
+;; Hack
+(use-package hack-mode
+  :config
+  (add-hook 'hack-mode-hook #'hack-enable-format-on-save)
+  (add-hook 'hack-mode-hook #'lsp)
+  (add-hook 'hack-mode-hook #'flycheck-mode)
+  (add-hook 'hack-mode-hook #'company-mode))
 
 ;; Shortcuts
 (use-package general
