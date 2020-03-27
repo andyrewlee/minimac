@@ -227,6 +227,13 @@
 (use-package org-present)
 (use-package org-download)
 
+;; Elixir
+(use-package elixir-mode
+  :ensure t
+  :config
+  (use-package alchemist
+    :ensure t))
+
 ;; Shortcuts
 (use-package general
   :config (general-define-key
