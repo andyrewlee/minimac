@@ -240,6 +240,9 @@
   (add-hook 'hack-mode-hook #'flycheck-mode)
   (add-hook 'hack-mode-hook #'company-mode))
 
+;; Markdown
+(use-package markdown-mode)
+
 ;; Shortcuts
 (use-package general
   :config (general-define-key
