@@ -243,6 +243,9 @@
 ;; Markdown
 (use-package markdown-mode)
 
+;; GraphQL
+(use-package graphql-mode)
+
 ;; Shortcuts
 (use-package general
   :config (general-define-key
