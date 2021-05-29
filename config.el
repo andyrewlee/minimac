@@ -161,7 +161,6 @@
 ;; Git
 (use-package magit
   :config
-  (use-package evil-magit)
   (use-package with-editor)
   (setq magit-push-always-verify nil)
   (setq git-commit-summary-max-length 50)
@@ -173,27 +172,24 @@
   (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
   (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 
-;; Haskell
-(use-package haskell-mode
-  :config
-  (add-hook 'haskell-mode-hook
-          (lambda ()
-            (haskell-doc-mode)
-            (turn-on-haskell-indent))))
-
 ;; Terminal
 (use-package multi-term)
 
 ;; Focus mode
-(use-package olivetti)
+(use-package olivetti
+  :config
+  (add-hook 'olivetti-mode-on-hook (lambda () (olivetti-set-width 100))))
 
 ;; Jump
 (use-package avy
   :config
   (setq avy-background t))
 
+(use-package dumb-jump)
+
 ;; Move buffer
 (use-package buffer-move)
+
 (use-package whitespace)
 
 ;; Window resize
@@ -225,20 +221,13 @@
   (setq org-pomodoro-play-sounds nil))
 
 (use-package org-present)
+
 (use-package org-download)
 
 ;; Elixir
 (use-package elixir-mode
   :config
   (use-package alchemist))
-
-;; Hack
-(use-package hack-mode
-  :config
-  (add-hook 'hack-mode-hook #'hack-enable-format-on-save)
-  (add-hook 'hack-mode-hook #'lsp)
-  (add-hook 'hack-mode-hook #'flycheck-mode)
-  (add-hook 'hack-mode-hook #'company-mode))
 
 ;; Markdown
 (use-package markdown-mode)
@@ -376,11 +365,13 @@
   (buf-move-down)
   (golden-ratio))
 
+;; Git
 (defun jhl/magit-status ()
   (interactive)
   (magit-status)
   (golden-ratio))
 
+;; Jump
 (defun jhl/avy-goto-word-or-subword-1 ()
   (interactive)
   (avy-goto-word-or-subword-1)
