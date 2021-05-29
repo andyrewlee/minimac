@@ -32,6 +32,7 @@
 (setq auto-save-default nil)
 (setq default-directory "~/")
 (setq require-final-newline t)
+(setq custom-file (concat user-emacs-directory "/custom.el"))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
