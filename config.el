@@ -315,6 +315,7 @@
 
   ;; Errors
   "el"  `(flycheck-list-errors :which-key "list flycheck errors")
+  "er"  `(jhl/rerun-flycheck :which-key "rerun flycheck")
 ))
 
 
@@ -355,6 +356,11 @@
 (defun jhl/todos ()
   (interactive)
   (find-file "~/Code/orgs/todos.org"))
+
+;; Open Code
+(defun jhl/code ()
+  (interactive)
+  (find-file "~/Code"))
 
 ;; Golden ratio
 (defun jhl/buf-move-right ()
