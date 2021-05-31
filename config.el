@@ -236,6 +236,14 @@
 ;; GraphQL
 (use-package graphql-mode)
 
+;; Undo
+(use-package undo-tree
+  :after evil
+  :diminish
+  :config
+  (evil-set-undo-system 'undo-tree)
+  (global-undo-tree-mode 1))
+
 ;; Shortcuts
 (use-package general
   :config (general-define-key
