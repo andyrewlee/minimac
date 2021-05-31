@@ -304,6 +304,9 @@
 
   ;; Zsh
   "zc"  '(jhl/zsh-config :which-key "zsh config")
+
+  ;; Errors
+  "el"  `(flycheck-error-list :which-key "list flycheck errors")
 ))
 
 
